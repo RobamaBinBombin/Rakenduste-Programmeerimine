@@ -1,10 +1,22 @@
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
     <title>Rakenduste programmeerimine - Toote leht</title>
-    <link rel="stylesheet" href="./main.css">
-    <script src="./item.js"></script>
+    <link href="stylesheet" href="./main.css">
+    <script>
+      alert("Hello World, item page!");
+      const x = window.location;
+      console.log(x);
+      const urlParams = new URLSearchParams(window.location.search);
+      const title = urlParams.get("title")
+      const cost = urlParams.get("cost")
+      const src = urlParams.get("src")
+
+      console.log(title, cost, src);
+      alert('Title ${title} cost: ${cost} path: ${src}')
+    </script>
 
   </head>
   <body>
