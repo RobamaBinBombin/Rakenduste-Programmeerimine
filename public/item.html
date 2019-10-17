@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8">
     <title>Rakenduste programmeerimine - Toote leht</title>
-    <link href="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./item.js">
     <script>
       alert("Hello World, item page!");
       const x = window.location;
@@ -16,6 +16,16 @@
 
       console.log(title, cost, src);
       alert('Title ${title} cost: ${cost} path: ${src}')
+
+      const element = document.createElement("div");
+      element.append(document.createTextNode("HELLO WORLD"))
+
+      window.addEventListener("load", () =>{
+        const app = document.getElementById("item-body")
+        app.append(element);
+      })
+
+
     </script>
 
   </head>
