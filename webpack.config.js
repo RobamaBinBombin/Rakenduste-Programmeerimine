@@ -17,6 +17,22 @@ module.exports = {
       }
     ])
   ],
+
+  module: {
+    rules: [
+      {
+        test: /\.js/,
+        exclude: /node_modules/,
+        use: "babel-loader"
+        // ,options:{
+        //   presets:[
+        //     "@babel/presets-env"
+        //   ]
+        // }
+      }
+    ]
+  },
+
   devServer: {
     contentBase: path.join(__dirname, "dist"),
     compress: true,
