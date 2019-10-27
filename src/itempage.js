@@ -1,6 +1,6 @@
-function setupItem() {
-  console.log("item.js loaded");
+console.log("itempage.js loaded");
 
+function setupItem() {
   //alert("Hello World, item page!");
   const x = window.location;
   console.log(x);
@@ -43,6 +43,13 @@ function setupItem() {
   }
 }
 
+function setup() {
+  const app = document.getElementById("item-list");
+  if (!app) return;
+
+  createItems();
+  setupCategoryListener();
+}
 // window.addEventListener("load", () =>{
 //     const app = document.getElementById("item-body")
 //     app.append(container);
