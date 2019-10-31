@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
 
 app.use(express.static("dist"));
 
-app.listen(process.env.PORT, () => {
-  console.log("Server started", PORT);
-  console.log(`http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log("Server started", port);
+  console.log(`http://localhost:${port}`);
 });
