@@ -4,9 +4,7 @@ import HomePage from "./HomePage.jsx";
 import ItemPage from "./ItemPage.jsx";
 import {
   BrowserRouter,
-  Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 const root = document.getElementById("app");
@@ -18,7 +16,7 @@ ReactDOM.render(
   //<button>I am button, hello world</button>,
   <BrowserRouter>
     <Route path="/" exact component={HomePage} />
-    <Route path="/item" exact component={ItemPage} />
+    <Route path="/items/:itemId" exact component={ItemPage} />
   </BrowserRouter>,
   root
 );

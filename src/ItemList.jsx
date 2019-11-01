@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 
 
@@ -11,19 +12,25 @@ const ItemList = (props) => {
           {
               props.items.map( item => {
                   return <Item 
+                    key={item.id}
+                    id={item.id}
                     imgSrc={item.imgSrc} 
                     price={item.price}
                     title={item.title}
-                    />
+                    />;
               })
           }
       </div>
-    )
+    );
+};
+
+ItemList.propTypes = {
+    items: PropTypes.array.isRequired
 };
 
 const Item = (props) => {
     return (
-        <Link to={"./item"}>
+        <Link to={`/items/${props.id}`}>
             <div className={"item"}>
                 <img src={props.imgSrc}/>
                 <div className="item_title">{props.title}</div>
@@ -31,7 +38,14 @@ const Item = (props) => {
 
             </div>    
         </Link>        
-    )
-}
+    );
+};
+
+Item.propTypes = {
+    id: PropTypes.string.isRequired,
+    imgSrc: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+};
 
 export default ItemList;

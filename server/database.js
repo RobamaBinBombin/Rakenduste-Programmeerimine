@@ -1,7 +1,3 @@
-const utils2 = require("./utils2");
-
-console.log("itemsList.js loaded");
-
 const phones = [
   {
     imgSrc:
@@ -584,62 +580,29 @@ const laptops = [
   }
 ];
 
-const categories = {
-  PHONE: "phone", //plural because it is like that in phones array
-  LAPTOP: "laptop"
+const getItems = () => {
+  const items = [];
+  phones.forEach((phone, index) => {
+    items.push({
+      ...phone,
+      id: "phones-" + index,
+      category: "phones"
+    });
+  });
+  laptops.forEach((laptop, index) => {
+    items.push({
+      ...laptop,
+      id: "laptops" + index,
+      category: "laptops"
+    });
+  });
+  return items;
 };
 
-// initial state
-let selectedCategory = categories.PHONE;
+const getItem = itemId => {
+  return getItems().find(item => item.id === itemId);
+};
 
-function createItems() {
-  //console.log('createItems', selectedCategory);
-  const root = document.getElementById("item-list");
-
-  root.innerHTML = null; //reset
-  //reset
-  //root.innerHTML = null;
-
-  let items = [];
-
-  if (selectedCategory === categories.PHONE) {
-    items = phones;
-    //console.log("set phones");
-  } else if (selectedCategory === categories.LAPTOP) {
-    items = laptops;
-    //console.log("set laptops");
-  }
-  items.forEach(phone => {
-    //console.log("drawing");
-    const element = utils2.createItemElement(phone);
-    root.append(element);
-    //console.log(element);
-  });
-}
-
-function setupCategoryListener() {
-  const dropdown = document.getElementById("category-dropdown");
-
-  dropdown.addEventListener("change", event => {
-    console.log(event.target.value);
-    selectedCategory = event.target.value;
-    createItems();
-    //const result = document.querySelector('.result');
-    //result.textContent = `You like ${event.target.value}`;
-  });
-}
-
-// window.addEventListener("load", () =>{
-//     console.log("Document loaded, itemsList.js");
-//     createItems();
-//     setupCategoryListener();
-//     //const app = document.getElementById("item-body")
-//     //app.append(container);
-// })
-
-function setupItemList() {
-  createItems();
-  setupCategoryListener();
-}
-
-module.exports = { setupItemList };
+module.exports = {
+  getItems
+};

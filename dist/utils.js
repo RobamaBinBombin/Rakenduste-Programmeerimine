@@ -3,7 +3,8 @@ console.log("utils.js loaded");
 //support function
 function createItemElement(item) {
   const anchor = document.createElement("a");
-  anchor.href = `./item.html?title=${item.title}&cost=${item.price}&src=${item.imgSrc}`;
+  anchor.href =
+    "./item.html?title=${item.title}&cost=${item.price}&src=${item.imgSrc}";
 
   const itemContainer = document.createElement("div");
   itemContainer.className = "item";
@@ -18,7 +19,6 @@ function createItemElement(item) {
   const titleElement = document.createElement("div");
   titleElement.className = "item_title";
   titleElement.textContent = item.title;
-
   anchor.append(itemContainer);
   itemContainer.append(imgElement);
   itemContainer.append(titleElement);
@@ -26,5 +26,3 @@ function createItemElement(item) {
 
   return anchor;
 }
-
-module.exports = { createItemElement };
