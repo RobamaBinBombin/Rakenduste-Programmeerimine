@@ -20,9 +20,7 @@ class ItemPage extends React.PureComponent{
     })
     .then( item =>{
       console.log("item", item);
-      this.setState({
-        ...item
-      });
+      this.setState({item});
     })
     .catch(err =>{
       console.log("item page ",err);
@@ -32,17 +30,19 @@ class ItemPage extends React.PureComponent{
     render(){
         //console.log("this.props", this.props);
         //console.log("itemID", this.props.match.params.itemId);
-
-        //console.log("this.state", this.state);
-
+        const item = this.state.item;
+        console.log("this.state", this.state);
+        if (item==null) {
+          return null;
+        }
         return (
           <>
             <Header/>
             <div className={"itemContainer"}>
-                <img src={this.state.imgSrc} />
-                <div className={"item_title"}>{this.state.title}</div>
-                <div className={"item_price"}>{this.state.price}</div>
-                {item.title}
+                <img src={item.imgSrc} />
+                <div className={"item_title"}>{item.title}</div>
+                <div className={"item_price"}>{item.price}</div>
+                {/* {item.title} */}
             </div>
           </>
         );

@@ -604,5 +604,6 @@ const getItem = itemId => {
 };
 
 module.exports = {
-  getItems
+  getItems,
+  getItem
 };

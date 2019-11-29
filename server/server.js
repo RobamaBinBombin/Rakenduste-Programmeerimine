@@ -1,8 +1,8 @@
 const express = require("express");
 const app = express();
 const path = require("path");
-const port = process.env.PORT || 3000;
-const DB = require(".server/database.js");
+const PORT = process.env.PORT || 3000;
+const DB = require("./database.js");
 
 // GET all items
 
@@ -13,7 +13,7 @@ app.get("/api/items", (req, res) => {
 // GET items with id
 
 app.get("/api/items/:itemId", (req, res) => {
-  res.send(DB.getItems(req.params.itemId));
+  res.send(DB.getItem(req.params.itemId));
 });
 
 app.post("/hello", (req, res) => {
